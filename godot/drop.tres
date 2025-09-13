@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://c18v3356j1s0a"]
+
+[ext_resource type="FontFile" uid="uid://btmsxat4jl02m" path="res://assets/fonts/Metropolis-SemiBold.ttf" id="1_v3rx4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3rx4"]
+bg_color = Color(0.129558, 0.129559, 0.129558, 1)
+border_width_top = 20
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vxoh2"]
+bg_color = Color(0, 0, 0, 1)
+expand_margin_top = 20.0
+expand_margin_bottom = 20.0
+
+[resource]
+default_font = ExtResource("1_v3rx4")
+default_font_size = 18
+TabContainer/colors/font_outline_color = Color(0, 0, 0, 0)
+TabContainer/colors/font_selected_color = Color(0.239216, 0.709804, 1, 1)
+TabContainer/colors/font_unselected_color = Color(1, 1, 1, 1)
+TabContainer/constants/icon_separation = 4
+TabContainer/constants/side_margin = 150
+TabContainer/styles/panel = SubResource("StyleBoxFlat_v3rx4")
+TabContainer/styles/tabbar_background = SubResource("StyleBoxFlat_vxoh2")
