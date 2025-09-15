@@ -2,6 +2,19 @@ extends Sprite2D
 
 func _ready() -> void:
 	move_right_and_back()
+	pulse_fade()
+
+func pulse_fade(duration: float = 0.5):
+	# more tween fun :)
+	var tween = create_tween()
+	var original_alpha = modulate.a
+	var half_duration = duration / 2
+	tween.set_loops()
+	# Fade out
+	tween.tween_property(self, "modulate:a", 0.1, half_duration)
+	# Fade back to original
+	tween.tween_property(self, "modulate:a", original_alpha, half_duration)
+
 
 func move_right_and_back():
 	# test tween to help show caling better.
