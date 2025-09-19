@@ -12,67 +12,39 @@ on:
         default: 'drop-app-gd'
         type: string
 
-env:
-  GAME_NAME: ${{ github.event.inputs.game_name || 'drop-app-gd' }}
-
 jobs:
-  export:
+  # job id, can be anything
+  export_game:
+    # Always use ubuntu-latest for this action
     runs-on: ubuntu-latest
-
+    # Add permission for release creation. Can be made narrower according to your needs
+    permissions:
+      contents: write
+    # Job name, can be anything
+    name: Export Game
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      # Always include the checkout step so that
+      # your project is available for Godot to export
+    - name: checkout
+      uses: actions/checkout@v5
+
+    - name: export game
+      id: export
+      # Use latest version (see releases for all versions)
+      uses: firebelley/godot-export@v7.0.0
       with:
-        lfs: true
+        # Defining all the required inputs
+        godot_executable_download_url: https://github.com/godotengine/godot-builds/releases/download/4.5-stable/Godot_v4.5-stable_linux.x86_64.zip
+        godot_export_templates_download_url: https://github.com/godotengine/godot-builds/releases/download/4.5-stable/Godot_v4.5-stable_export_templates.tpz
+        relative_project_path: ./
+        archive_output: true
 
-    - name: Setup Godot
-      uses: firebelley/setup-godot@v7
+      # This release action has worked well for me. However, you can most likely use any release action of your choosing.
+      # https://github.com/ncipollo/release-action
+    - name: create release
+      uses: ncipollo/release-action@v1.18.0
       with:
-        godot-version: "4.5" # not sure if 4.5 supported?
-
-    - name: Install export templates
-      run: |
-        mkdir -p ~/.local/share/godot/export_templates
-        wget -q https://github.com/godotengine/godot-builds/releases/download/4.5-stable/Godot_v4.5-stable_export_templates.tpz
-        unzip -q Godot_v4.5-stable_export_templates.tpz -d ~/.local/share/godot/export_templates
-        mv ~/.local/share/godot/export_templates/templates/* ~/.local/share/godot/export_templates/
-        rm -rf ~/.local/share/godot/export_templates/templates
-
-    - name: Export Windows build
-      run: |
-        mkdir -p build/windows
-        godot --headless --export-release "Windows Desktop" build/windows/$GAME_NAME.exe
-
-    - name: Export Linux build
-      run: |
-        mkdir -p build/linux
-        godot --headless --export-release "Linux/X11" build/linux/$GAME_NAME.x86_64
-
-    - name: Export HTML5 build
-      run: |
-        mkdir -p build/html
-        godot --headless --export-release "Web" build/html/index.html
-
-    - name: Create ZIP archives
-      run: |
-        cd build/windows && zip -r ../${GAME_NAME}-windows.zip ./*
-        cd ../linux && zip -r ../${GAME_NAME}-linux.zip ./*
-        cd ../html && zip -r ../${GAME_NAME}-html.zip ./*
-
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: ${{ env.GAME_NAME }}-builds
-        path: |
-          build/${{ env.GAME_NAME }}-windows.zip
-          build/${{ env.GAME_NAME }}-linux.zip
-          build/${{ env.GAME_NAME }}-html.zip
-
-    - name: Create GitHub Release (on tags)
-      if: startsWith(github.ref, 'refs/tags/')
-      uses: softprops/action-gh-release@v1
-      with:
-        files: |
-          build/${{ env.GAME_NAME }}-windows.zip
-          build/${{ env.GAME_NAME }}-linux.zip
-          build/${{ env.GAME_NAME }}-html.zip
+        token: ${{ secrets.GITHUB_TOKEN }}
+        generateReleaseNotes: true
+        tag: ${{ github.ref_name }}
+        artifacts: ${{ steps.export.outputs.archive_directory }}/*
