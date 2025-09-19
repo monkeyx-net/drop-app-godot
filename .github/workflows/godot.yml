@@ -38,54 +38,6 @@ jobs:
         mv ~/.local/share/godot/export_templates/templates/* ~/.local/share/godot/export_templates/
         rm -rf ~/.local/share/godot/export_templates/templates
 
-    - name: Create or update export_presets.cfg
-      run: |
-        # Create or update export presets with the correct game name
-        if [ ! -f export_presets.cfg ]; then
-          echo "Creating export_presets.cfg..."
-          cat > export_presets.cfg << EOF
-[preset.0]
-name="Windows Desktop"
-platform="Windows Desktop"
-runnable=true
-dedicated_server=false
-custom_features=""
-export_path="build/windows/$GAME_NAME.exe"
-export_filter="all_resources"
-include_filter=""
-exclude_filter=""
-export_files=""
-
-[preset.1]
-name="Linux/X11"
-platform="Linux/X11"
-runnable=true
-dedicated_server=false
-custom_features=""
-export_path="build/linux/$GAME_NAME.x86_64"
-export_filter="all_resources"
-include_filter=""
-exclude_filter=""
-export_files=""
-
-[preset.2]
-name="Web"
-platform="Web"
-runnable=true
-dedicated_server=false
-custom_features=""
-export_path="build/html/index.html"
-export_filter="all_resources"
-include_filter=""
-exclude_filter=""
-export_files=""
-EOF
-        else
-          # Update existing export presets with the correct game name if needed?
-          sed -i "s/export_path=.*\.exe/export_path=\"build\/windows\/$GAME_NAME.exe\"/" export_presets.cfg
-          sed -i "s/export_path=.*\.x86_64/export_path=\"build\/linux\/$GAME_NAME.x86_64\"/" export_presets.cfg
-        fi
-
     - name: Export Windows build
       run: |
         mkdir -p build/windows
