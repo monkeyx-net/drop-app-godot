@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/image="uid://d0um57q0grkmr"
 config/icon="uid://d0um57q0grkmr"
 
+[autoload]
+
+JsonSettings="*res://cfg/scripts/json_settings.gd"
+
 [display]
 
 window/stretch/mode="canvas_items"

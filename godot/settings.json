@@ -1,0 +1,30 @@
+{
+	"application": {
+		"description": "GoDot front end app for Drop OSS",
+		"name": "Drop App",
+		"version": "0.0.1"
+	},
+	"authentication": {
+		"admin_token": "encrypted_server_generated_token",
+		"client_token": "encrypted_client_generated_token"
+	},
+	"connection": {
+		"retry_attempts": 3,
+		"retry_delay": 1000,
+		"timeout": 30000
+	},
+	"logging": {
+		"file_path": "logs/app.log",
+		"level": "info"
+	},
+	"server": {
+		"api_version": "v1",
+		"base_url": "http://localhost",
+		"endpoints": {
+			"auth": "/api/v1/auth",
+			"data": "/api/v1/data",
+			"users": "/api/v1/users"
+		},
+		"port": 3000
+	}
+}

@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://evsp31dffrpb"]
+[gd_scene load_steps=10 format=3 uid="uid://evsp31dffrpb"]
 
 [ext_resource type="Theme" uid="uid://c18v3356j1s0a" path="res://drop.tres" id="1_hg8ge"]
+[ext_resource type="Script" uid="uid://6bore4ab4xtw" path="res://main/scripts/main.gd" id="2_3bpsh"]
 [ext_resource type="Texture2D" uid="uid://dm0kpmphrvxk" path="res://assets/main/wave.svg" id="2_3liyu"]
+[ext_resource type="Texture2D" uid="uid://dtqnr0ifidbw" path="res://assets/main/hamburger.svg" id="2_jk04u"]
 [ext_resource type="Texture2D" uid="uid://bwh3ptelc7pfv" path="res://assets/icons/32x32.png" id="2_ruvko"]
 [ext_resource type="Script" uid="uid://cqsli4slkwip3" path="res://main/logo.gd" id="3_3liyu"]
+[ext_resource type="Texture2D" uid="uid://bkbxp2gy7r87h" path="res://assets/main/cross.svg" id="3_jk04u"]
+[ext_resource type="Texture2D" uid="uid://cf524g548otr5" path="res://assets/main/magnify.svg" id="4_0etmw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0etmw"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -13,6 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_hg8ge")
+script = ExtResource("2_3bpsh")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -25,16 +32,116 @@ theme_override_constants/margin_top = 20
 
 [node name="TabContainer" type="TabContainer" parent="MarginContainer"]
 layout_mode = 2
-current_tab = 0
+current_tab = 1
 
 [node name="STORE" type="MarginContainer" parent="MarginContainer/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="LIBRARY" type="MarginContainer" parent="MarginContainer/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TabContainer/LIBRARY"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 4
+
+[node name="SplitContainer" type="SplitContainer" parent="MarginContainer/TabContainer/LIBRARY/MarginContainer"]
+layout_mode = 2
+theme_override_styles/split_bar_background = SubResource("StyleBoxFlat_0etmw")
+split_offset = 200
+drag_area_highlight_in_editor = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TabContainer/LIBRARY/MarginContainer/SplitContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Magnify" type="Sprite2D" parent="MarginContainer/TabContainer/LIBRARY/MarginContainer/SplitContainer/MarginContainer"]
+position = Vector2(20, 55)
+texture = ExtResource("4_0etmw")
+
+[node name="Panel" type="Panel" parent="MarginContainer/TabContainer/LIBRARY/MarginContainer/SplitContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/TabContainer/LIBRARY/MarginContainer/SplitContainer/MarginContainer/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("2_jk04u")
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/LIBRARY/MarginContainer/SplitContainer/MarginContainer/Panel/TextureButton"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 4.0
+offset_right = 100.0
+offset_bottom = 23.0
+text = "Library"
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/TabContainer/LIBRARY/MarginContainer/SplitContainer/MarginContainer/Panel"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 38.0
+offset_right = 193.0
+offset_bottom = 65.0
+placeholder_text = "Search Library ..."
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/TabContainer/LIBRARY/MarginContainer/SplitContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/LIBRARY/MarginContainer/SplitContainer/MarginContainer2"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=28][color=#ffffff]Library[/color][/font_size]
+
+[color=gray]Organize your games into collections for easy access, and access all your games.[/color]"
+
+[node name="Panel" type="Panel" parent="MarginContainer/TabContainer/LIBRARY/MarginContainer/SplitContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/TabContainer/LIBRARY/MarginContainer/SplitContainer/MarginContainer2/Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -198.0
+offset_right = 474.0
+offset_bottom = -101.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.44677776, 0.4467767, 0.44677705, 1)
+text = "Create Collection
+
+Add a new collection to organise your games"
+icon = ExtResource("3_jk04u")
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/LIBRARY/MarginContainer/SplitContainer/MarginContainer2/Panel"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 189.0
+offset_right = 90.0
+offset_bottom = 208.0
+text = "All Games"
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/TabContainer/LIBRARY/MarginContainer/SplitContainer/MarginContainer2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 218.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="COMMUNITY" type="MarginContainer" parent="MarginContainer/TabContainer"]
 visible = false

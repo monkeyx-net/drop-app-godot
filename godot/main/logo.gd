@@ -1,10 +1,11 @@
 extends Sprite2D
 
 func _ready() -> void:
-	move_right_and_back()
+	pass
+#	move_right_and_back()
 	pulse_fade()
 
-func pulse_fade(duration: float = 0.5):
+func pulse_fade(duration: float = 10.5):
 	# more tween fun :)
 	var tween = create_tween()
 	var original_alpha = modulate.a
