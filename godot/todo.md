@@ -11,7 +11,7 @@
 - Create Class to read json settings
 	* ~~Create get statements~~
 	* Create set statements and update for file for supported objects
-	* Encrypt/decrpyt api tokens
+	* ~~Encrypt/decrpyt api tokens~~
 	* Reset/delete tokens/ show token?
 
 - Theme
