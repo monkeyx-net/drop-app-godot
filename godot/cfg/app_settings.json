@@ -9,9 +9,9 @@
 		"client_token": "encrypted_client_generated_token"
 	},
 	"connection": {
-		"retry_attempts": 3.0,
-		"retry_delay": 1000.0,
-		"timeout": 30000.0
+		"retry_attempts": 3,
+		"retry_delay": 1000,
+		"timeout": 30000
 	},
 	"logging": {
 		"file_path": "logs/app.log",
