@@ -22,3 +22,4 @@ func _ready() -> void:
 		JsonSettings.client_token = success
 	var bob:String = JsonSettings.decrypt_data(crypto, keypair,Marshalls.base64_to_raw(JsonSettings.client_token))
 	print ("Decrypted?: ", bob)
+	$MarginContainer/TabContainer/LIBRARY/MarginContainer/SplitContainer/MarginContainer2/Panel/Label.text=bob
