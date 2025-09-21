@@ -6,12 +6,12 @@
 	},
 	"authentication": {
 		"admin_token": "encrypted_server_generated_token",
-		"client_token": "ZqgcSussQoeVB1cGgKslV7XxDfcF7sl8Hh89p3vIJcobkptQyMV5zKkX9S465b7fEfTrcKT0RD+ZGwTC9GrUlXHweRpf7Ke/6mYfDpGy4L6+vrmXtH0A/01P3+6XsaafWIIuyhgmiqILFvkZh12F9C9SswIhSfSa4QtR9932tRp5ePWVr54WnTgXI6Xt2SAQkveDPhnEaah2/RiNE+4uXcxIwyvQg3AwwMcalF5HWUqlyUtahsI+5ZHhZrFIeFXQ4SkTbDGPYA488T4IdSsAF4vLjGAuN4aFXkxkYZH5MTkrpBDgijnFiyzDJ74iH3++0apuL7VbSAEyDSIes4J6eEb+YIZtAHkWaYgBpGzKqK7grGtWe2jhw6GclcT7JSzO68p4PnqMli1+LLvjeKXZXnz/VYeqZhV8elU2uVXezk+GvmZ6HvjBLt3K+1c8g96/xPTLlNqgMsSd4kcPobB466K6FW2SQXqPQh5EE1l1xXiGNTwumDEZ+i5vlWqJ5y2vAStWePwJrYE9cjpwqaPQtXz9DSPjWMRv5OMBYpDQFCbOoMDWrR5CHxvzvyyt22XsuPW+x3rPmG+lw3ww/2X0OR45vSBr2zCj+87q2zROk5Jh4owYu/mswN/oMn1c3H2xwsvcvRVHoUdbDji9O/+5FTtjeS3V6jwn3cButKxfsGo="
+		"client_token": "encrypted_client_generated_token"
 	},
 	"connection": {
-		"retry_attempts": 3.0,
-		"retry_delay": 1000.0,
-		"timeout": 30000.0
+		"retry_attempts": 3,
+		"retry_delay": 1000,
+		"timeout": 3000
 	},
 	"logging": {
 		"file_path": "logs/app.log",
@@ -48,6 +48,6 @@
 			"task": "/api/v1/task",
 			"user": "/api/v1/user"
 		},
-		"port": 3000.0
+		"port": 3000
 	}
 }
