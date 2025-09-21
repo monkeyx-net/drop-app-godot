@@ -17,9 +17,8 @@ func _ready() -> void:
 	#JsonSettings.jsetting.server_port = 8080
 	#print("Port number: ", JsonSettings.jsetting.server_port)
 
-
-	var success = JsonSettings.encrypt_data(crypto, keypair, JsonSettings.client_token)
-	JsonSettings.client_token = success
-	#if success:
+	if JsonSettings.client_token == "encrypted_client_generated_token":
+		var success = JsonSettings.encrypt_data(crypto, keypair, JsonSettings.client_token)
+		JsonSettings.client_token = success
 	var bob:String = JsonSettings.decrypt_data(crypto, keypair,Marshalls.base64_to_raw(JsonSettings.client_token))
 	print ("Decrypted?: ", bob)
