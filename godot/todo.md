@@ -12,6 +12,10 @@
     * ~~Create get statements~~
     * Create set statements and update for file for supported objects
     * Encrypt/decrpyt api tokens
+
+- Theme
+    * Create a theme based of current drop-app
+    * Customise theme
     
 - First Run
     * Set server url and port
