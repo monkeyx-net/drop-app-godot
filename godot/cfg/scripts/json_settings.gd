@@ -1,9 +1,10 @@
 extends Node
 
 static var jsetting: JsonSettings
+# need to this as project setup ie once
+
 var settings_data: Dictionary = {}
 var settings_path: String = "res://cfg/app_settings.json"
-
 var application: Dictionary:
 	get: return settings_data.get("application", {})    
 var authentication: Dictionary:
@@ -31,21 +32,22 @@ var app_description: String:
 	get: return application.get("description", {})
 var client_token: String:
 	get: return authentication.get("client_token", {})
+	set(value):
+		authentication["client_token"] = value
+		save_settings()
 var admin_token: String:
 	get: return authentication.get("admin_token", {})
 	
 func _init():
 	jsetting = self
 	load_settings()
-
+	
 func load_settings() -> bool:
 	var file_path = settings_path
-	
 	if not FileAccess.file_exists(file_path):
 		push_error("Settings file not found: " + file_path)
 		create_default_settings()
 		return false
-	
 	var file = FileAccess.open(file_path, FileAccess.READ)
 	if file == null:
 		push_error("Failed to open settings file: Error " + str(FileAccess.get_open_error()))
@@ -182,3 +184,34 @@ func reload_settings() -> bool:
 func reset_to_default() -> bool:
 	create_default_settings()
 	return load_settings()
+
+func load_or_generate_key(crypto: Crypto) -> CryptoKey:
+	var keypair = CryptoKey.new()
+	# needs to go user path?
+	var private_key: String = "cfg/id_rsa.key"
+	var public_key: String = "cfg/id_rsa.pub"
+	# Try to load existing private key
+	if FileAccess.file_exists(private_key):
+		if keypair.load(private_key) == OK:
+			# TODO log instead
+			print("Loaded existing RSA key")
+			return keypair
+	# TODO log instead
+	print("Generating new RSA key...")
+	keypair = crypto.generate_rsa(4096)
+	if keypair.save(private_key) == OK and keypair.save(public_key, true) == OK:
+		# TODO log instead
+		print("New RSA key generated and saved")
+	return keypair
+	
+func encrypt_data(crypto: Crypto, keypair: CryptoKey, message: String) -> String:
+	var ciphertext = crypto.encrypt(keypair, message.to_utf8_buffer())
+	return Marshalls.raw_to_base64(ciphertext)
+
+func decrypt_data(crypto: Crypto, keypair: CryptoKey, encrypted_token: PackedByteArray) -> String:
+	if encrypted_token.is_empty():
+		push_error("No data to decrypt")
+		return "Error"
+	var decrypted_bytes = crypto.decrypt(keypair, encrypted_token)
+	var decrypted_message = decrypted_bytes.get_string_from_utf8()
+	return decrypted_message

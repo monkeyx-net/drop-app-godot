@@ -6,12 +6,12 @@
 	},
 	"authentication": {
 		"admin_token": "encrypted_server_generated_token",
-		"client_token": "encrypted_client_generated_token"
+		"client_token": ""
 	},
 	"connection": {
-		"retry_attempts": 3,
-		"retry_delay": 1000,
-		"timeout": 30000
+		"retry_attempts": 3.0,
+		"retry_delay": 1000.0,
+		"timeout": 30000.0
 	},
 	"logging": {
 		"file_path": "logs/app.log",
@@ -48,6 +48,6 @@
 			"task": "/api/v1/task",
 			"user": "/api/v1/user"
 		},
-		"port": 3000
+		"port": 3000.0
 	}
 }
