@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://63yam23dmo6a"]
+[gd_scene load_steps=5 format=3 uid="uid://63yam23dmo6a"]
 
 [ext_resource type="Script" uid="uid://dsnj0rmp0xvf8" path="res://scenes/setup/openurl.gd" id="1_ffqec"]
 [ext_resource type="Theme" uid="uid://c18v3356j1s0a" path="res://themes/drop.tres" id="1_fnf1q"]
+[ext_resource type="Texture2D" uid="uid://dpsw6tepu8tp4" path="res://scenes/setup/assetts/grey_circle.svg" id="2_3w0sv"]
+[ext_resource type="Script" uid="uid://bu67bosgqyrg5" path="res://scenes/setup/connect_server.gd" id="2_lru34"]
 
 [node name="Setup" type="Control"]
 layout_mode = 3
@@ -45,6 +47,7 @@ offset_right = 151.0
 offset_bottom = 156.0
 grow_horizontal = 2
 text = "Connect to your Drop server/instance"
+script = ExtResource("2_lru34")
 
 [node name="HostEnter" type="LineEdit" parent="MarginContainer/Panel/ConnectLabel"]
 layout_mode = 0
@@ -55,15 +58,29 @@ offset_bottom = 49.0
 text = "http://localhost:3000"
 placeholder_text = "http://localhost:3000"
 
+[node name="GreyCircle" type="Sprite2D" parent="MarginContainer/Panel/ConnectLabel"]
+unique_name_in_owner = true
+position = Vector2(310, 35.999996)
+scale = Vector2(0.45000002, 0.46666664)
+texture = ExtResource("2_3w0sv")
+
+[node name="ConnectionStatusLabel" type="Label" parent="MarginContainer/Panel/ConnectLabel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 11.0
+offset_top = 54.0
+offset_right = 294.0
+offset_bottom = 82.0
+
 [node name="ClientTokenLabel" type="Label" parent="MarginContainer/Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -171.0
-offset_top = 209.0
-offset_right = 156.0
-offset_bottom = 232.0
+offset_left = -172.0
+offset_top = 248.0
+offset_right = 155.0
+offset_bottom = 271.0
 grow_horizontal = 2
 text = "Enter Client Token"
 
@@ -80,10 +97,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -171.0
-offset_top = 278.0
-offset_right = 4.0
-offset_bottom = 301.0
+offset_left = -174.0
+offset_top = 306.0
+offset_right = 1.0
+offset_bottom = 329.0
 grow_horizontal = 2
 text = "Enter Admin token"
 

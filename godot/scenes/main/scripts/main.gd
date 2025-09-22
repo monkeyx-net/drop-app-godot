@@ -1,7 +1,5 @@
 extends Control
 
-# refences the JsonSettings via autoload
-
 func _ready() -> void:
 	var crypto: Crypto = Crypto.new()
 	var keypair: CryptoKey = JsonSettings.load_or_generate_key(crypto)
