@@ -1,0 +1,107 @@
+[gd_scene load_steps=3 format=3 uid="uid://63yam23dmo6a"]
+
+[ext_resource type="Script" uid="uid://dsnj0rmp0xvf8" path="res://scenes/setup/openurl.gd" id="1_ffqec"]
+[ext_resource type="Theme" uid="uid://c18v3356j1s0a" path="res://themes/drop.tres" id="1_fnf1q"]
+
+[node name="Setup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fnf1q")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="SetupLabel" type="Label" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_right = 61.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "SETUP SCREEN"
+
+[node name="ConnectLabel" type="Label" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -176.0
+offset_top = 133.0
+offset_right = 151.0
+offset_bottom = 156.0
+grow_horizontal = 2
+text = "Connect to your Drop server/instance"
+
+[node name="HostEnter" type="LineEdit" parent="MarginContainer/Panel/ConnectLabel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 22.0
+offset_right = 278.0
+offset_bottom = 49.0
+text = "http://localhost:3000"
+placeholder_text = "http://localhost:3000"
+
+[node name="ClientTokenLabel" type="Label" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -171.0
+offset_top = 209.0
+offset_right = 156.0
+offset_bottom = 232.0
+grow_horizontal = 2
+text = "Enter Client Token"
+
+[node name="ClientTokenEnter" type="LineEdit" parent="MarginContainer/Panel/ClientTokenLabel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 24.0
+offset_right = 275.0
+offset_bottom = 51.0
+placeholder_text = "Enter your token here"
+
+[node name="AdminTokenLabel" type="Label" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -171.0
+offset_top = 278.0
+offset_right = 4.0
+offset_bottom = 301.0
+grow_horizontal = 2
+text = "Enter Admin token"
+
+[node name="AdminTokenEnter" type="LineEdit" parent="MarginContainer/Panel/AdminTokenLabel"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 20.0
+offset_right = 277.0
+offset_bottom = 47.0
+placeholder_text = "Enter Admin Token"
+
+[node name="HostServerRTL" type="RichTextLabel" parent="MarginContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 306.0
+offset_top = 503.0
+offset_right = 696.0
+offset_bottom = 526.0
+bbcode_enabled = true
+text = "[font_size=14]Don't have a server?[color=#93c5fd] [url=https://github.com/Drop-OSS]Then host your own instance![/url][/color][/font_size]"
+script = ExtResource("1_ffqec")

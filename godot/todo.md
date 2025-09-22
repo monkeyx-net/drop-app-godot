@@ -17,6 +17,7 @@
 - Theme
 	* Create a theme based of current drop-app
 	* Customise theme
+	* Make logo a scene
 	
 - First Run
 	* Set server url and port

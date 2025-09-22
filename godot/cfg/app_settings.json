@@ -2,10 +2,10 @@
 	"application": {
 		"description": "GoDot front end app for Drop OSS",
 		"name": "Drop App",
-		"version": "300000.0.1"
+		"version": "0.0.1"
 	},
 	"authentication": {
-		"admin_token": "encrypted_server_generated_token",
+		"admin_token": "encrypted_admin_generated_token",
 		"client_token": "encrypted_client_generated_token"
 	},
 	"connection": {

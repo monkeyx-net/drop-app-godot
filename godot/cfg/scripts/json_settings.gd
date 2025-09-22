@@ -17,7 +17,7 @@ var logging: Dictionary:
 	get: return settings_data.get("logging", {})
 var server_base_url: String:
 	get: return server.get("base_url", {})  
-var server_port: int:
+var server_port: String:
 	get: return server.get("port", {})
 	set(value):
 		server["port"] = value
@@ -88,7 +88,7 @@ func get_full_url(endpoint_name: String) -> String:
 	if endpoint.is_empty():
 		return ""
 	
-	return "%s:%d%s" % [server_base_url, server_port, endpoint]
+	return "%s:%s%s" % [server_base_url, server_port, endpoint]
 
 func get_auth_token(is_admin: bool = false) -> String:
 	return admin_token if is_admin else client_token
@@ -102,13 +102,13 @@ func set_auth_token(token: String, is_admin: bool = false) -> void:
 		client_token = token
 	save_settings()
 
-func get_timeout() -> int:
+func get_timeout() -> String:
 	return connection.get("timeout", {})
 
-func get_retry_attempts() -> int:
+func get_retry_attempts() -> String:
 	return connection.get("retry_attempts", {})
 
-func get_retry_delay() -> int:
+func get_retry_delay() -> String:
 	return connection.get("retry_delay", {})
 
 func get_log_file_path() -> String:
@@ -124,11 +124,11 @@ func create_default_settings() -> void:
 		},
 		"authentication": {
 			"client_token": "encrypted_client_generated_token",
-			"admin_token": "encrypted_server_generated_token"
+			"admin_token": "encrypted_admin_generated_token"
 		},
 		"server": {
 			"base_url": "http://localhost",
-			"port": 3000,
+			"port": "3000",
 			"api_version": "v1",
 			"endpoints": {
 				  "auth": "/api/v1/auth",
@@ -160,9 +160,9 @@ func create_default_settings() -> void:
 			}
 		},
 		"connection": {
-			"timeout": 30000,
-			"retry_attempts": 3,
-			"retry_delay": 1000
+			"timeout": "30000",
+			"retry_attempts": "3",
+			"retry_delay": "1000"
 		},
 		"logging": {
 			"level": "info",

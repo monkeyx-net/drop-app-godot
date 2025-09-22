@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://evsp31dffrpb"]
 
-[ext_resource type="Theme" uid="uid://c18v3356j1s0a" path="res://drop.tres" id="1_hg8ge"]
-[ext_resource type="Script" uid="uid://6bore4ab4xtw" path="res://main/scripts/main.gd" id="2_3bpsh"]
+[ext_resource type="Theme" uid="uid://c18v3356j1s0a" path="res://themes/drop.tres" id="1_hg8ge"]
+[ext_resource type="Script" uid="uid://6bore4ab4xtw" path="res://scenes/main/scripts/main.gd" id="2_3bpsh"]
 [ext_resource type="Texture2D" uid="uid://dm0kpmphrvxk" path="res://assets/main/wave.svg" id="2_3liyu"]
 [ext_resource type="Texture2D" uid="uid://dtqnr0ifidbw" path="res://assets/main/hamburger.svg" id="2_jk04u"]
 [ext_resource type="Texture2D" uid="uid://bwh3ptelc7pfv" path="res://assets/icons/32x32.png" id="2_ruvko"]
-[ext_resource type="Script" uid="uid://cqsli4slkwip3" path="res://main/logo.gd" id="3_3liyu"]
+[ext_resource type="Script" uid="uid://cqsli4slkwip3" path="res://scenes/main/logo.gd" id="3_3liyu"]
 [ext_resource type="Texture2D" uid="uid://bkbxp2gy7r87h" path="res://assets/main/cross.svg" id="3_jk04u"]
 [ext_resource type="Texture2D" uid="uid://cf524g548otr5" path="res://assets/main/magnify.svg" id="4_0etmw"]
 
