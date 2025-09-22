@@ -68,8 +68,7 @@ func load_settings() -> bool:
 	return true
 
 func save_settings() -> bool:
-	var file = FileAccess.open(settings_path, FileAccess.WRITE)
-	
+	var file = FileAccess.open(settings_path, FileAccess.WRITE)	
 	if file == null:
 		push_error("Failed to open settings.json for writing")
 		return false
