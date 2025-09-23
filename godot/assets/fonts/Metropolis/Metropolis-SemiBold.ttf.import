@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://btmsxat4jl02m"
-path="res://.godot/imported/Metropolis-SemiBold.ttf-9d56f144e3c528839959cd4f398b2976.fontdata"
+path="res://.godot/imported/Metropolis-SemiBold.ttf-bd20e627b1aa0689d9c1b919f5fae9a7.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/Metropolis-SemiBold.ttf"
-dest_files=["res://.godot/imported/Metropolis-SemiBold.ttf-9d56f144e3c528839959cd4f398b2976.fontdata"]
+source_file="res://assets/fonts/Metropolis/Metropolis-SemiBold.ttf"
+dest_files=["res://.godot/imported/Metropolis-SemiBold.ttf-bd20e627b1aa0689d9c1b919f5fae9a7.fontdata"]
 
 [params]
 

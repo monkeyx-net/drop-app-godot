@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dv48o02nealut"
-path="res://.godot/imported/Metropolis-Bold.ttf-c3dc888ebe62a957e5646aa4be52e8bd.fontdata"
+uid="uid://cqdvx30omp2i1"
+path="res://.godot/imported/Metropolis-Thin.ttf-df286c44b46d88a1c3bf623dd7e3317c.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/Metropolis-Bold.ttf"
-dest_files=["res://.godot/imported/Metropolis-Bold.ttf-c3dc888ebe62a957e5646aa4be52e8bd.fontdata"]
+source_file="res://assets/fonts/Metropolis/Metropolis-Thin.ttf"
+dest_files=["res://.godot/imported/Metropolis-Thin.ttf-df286c44b46d88a1c3bf623dd7e3317c.fontdata"]
 
 [params]
 

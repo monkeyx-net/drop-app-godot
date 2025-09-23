@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://63yam23dmo6a"]
+[gd_scene load_steps=6 format=3 uid="uid://63yam23dmo6a"]
 
-[ext_resource type="Script" uid="uid://dsnj0rmp0xvf8" path="res://scenes/setup/openurl.gd" id="1_ffqec"]
-[ext_resource type="Theme" uid="uid://c18v3356j1s0a" path="res://themes/drop.tres" id="1_fnf1q"]
 [ext_resource type="Texture2D" uid="uid://dpsw6tepu8tp4" path="res://scenes/setup/assetts/grey_circle.svg" id="2_3w0sv"]
-[ext_resource type="Script" uid="uid://bu67bosgqyrg5" path="res://scenes/setup/connect_server.gd" id="2_lru34"]
+[ext_resource type="Script" uid="uid://bu67bosgqyrg5" path="res://scenes/setup/scripts/connect_server.gd" id="2_lru34"]
+[ext_resource type="Texture2D" uid="uid://bwh3ptelc7pfv" path="res://assets/icons/32x32.png" id="4_s26my"]
+[ext_resource type="Script" uid="uid://cqsli4slkwip3" path="res://scenes/main/logo.gd" id="5_gar41"]
+[ext_resource type="Texture2D" uid="uid://dm0kpmphrvxk" path="res://assets/main/wave.svg" id="6_dmqie"]
 
 [node name="Setup" type="Control"]
 layout_mode = 3
@@ -12,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_fnf1q")
+script = ExtResource("2_lru34")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -25,100 +26,163 @@ grow_vertical = 2
 [node name="Panel" type="Panel" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="SetupLabel" type="Label" parent="MarginContainer/Panel"]
+[node name="SetupRTL" type="RichTextLabel" parent="MarginContainer/Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -90.0
-offset_right = 61.0
-offset_bottom = 23.0
+offset_left = -166.0
+offset_top = 48.0
+offset_right = 155.0
+offset_bottom = 96.0
 grow_horizontal = 2
-text = "SETUP SCREEN"
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0]DROP CLIENT SETUP[/pulse]"
 
 [node name="ConnectLabel" type="Label" parent="MarginContainer/Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -176.0
-offset_top = 133.0
-offset_right = 151.0
-offset_bottom = 156.0
+offset_left = -192.0
+offset_top = 120.0
+offset_right = 135.0
+offset_bottom = 143.0
 grow_horizontal = 2
 text = "Connect to your Drop server/instance"
-script = ExtResource("2_lru34")
 
 [node name="HostEnter" type="LineEdit" parent="MarginContainer/Panel/ConnectLabel"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 22.0
-offset_right = 278.0
-offset_bottom = 49.0
-text = "http://localhost:3000"
-placeholder_text = "http://localhost:3000"
+offset_top = 24.0
+offset_right = 308.0
+offset_bottom = 55.0
+text = "http://localhost:3001"
+placeholder_text = "http://localhost:3001"
 
 [node name="GreyCircle" type="Sprite2D" parent="MarginContainer/Panel/ConnectLabel"]
 unique_name_in_owner = true
-position = Vector2(310, 35.999996)
+position = Vector2(293, 37.999996)
 scale = Vector2(0.45000002, 0.46666664)
 texture = ExtResource("2_3w0sv")
-
-[node name="ConnectionStatusLabel" type="Label" parent="MarginContainer/Panel/ConnectLabel"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 11.0
-offset_top = 54.0
-offset_right = 294.0
-offset_bottom = 82.0
 
 [node name="ClientTokenLabel" type="Label" parent="MarginContainer/Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -172.0
-offset_top = 248.0
-offset_right = 155.0
-offset_bottom = 271.0
+offset_left = -192.0
+offset_top = 192.0
+offset_right = 135.0
+offset_bottom = 215.0
 grow_horizontal = 2
-text = "Enter Client Token"
+text = "Client Token"
 
-[node name="ClientTokenEnter" type="LineEdit" parent="MarginContainer/Panel/ClientTokenLabel"]
+[node name="ClientTokenEdit" type="LineEdit" parent="MarginContainer/Panel/ClientTokenLabel"]
+unique_name_in_owner = true
 layout_mode = 0
-offset_left = 5.0
 offset_top = 24.0
-offset_right = 275.0
-offset_bottom = 51.0
+offset_right = 308.0
+offset_bottom = 55.0
 placeholder_text = "Enter your token here"
+
+[node name="ClientConnectRTL" type="RichTextLabel" parent="MarginContainer/Panel/ClientTokenLabel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 104.0
+offset_top = 2.0
+offset_right = 758.0
+offset_bottom = 27.0
+bbcode_enabled = true
 
 [node name="AdminTokenLabel" type="Label" parent="MarginContainer/Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -174.0
-offset_top = 306.0
-offset_right = 1.0
-offset_bottom = 329.0
+offset_left = -192.0
+offset_top = 264.0
+offset_right = -17.0
+offset_bottom = 287.0
 grow_horizontal = 2
-text = "Enter Admin token"
+text = "Admin token"
 
-[node name="AdminTokenEnter" type="LineEdit" parent="MarginContainer/Panel/AdminTokenLabel"]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 20.0
-offset_right = 277.0
-offset_bottom = 47.0
-placeholder_text = "Enter Admin Token"
-
-[node name="HostServerRTL" type="RichTextLabel" parent="MarginContainer/Panel"]
+[node name="AdminTokenEdit" type="LineEdit" parent="MarginContainer/Panel/AdminTokenLabel"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 306.0
-offset_top = 503.0
-offset_right = 696.0
-offset_bottom = 526.0
+offset_top = 24.0
+offset_right = 308.0
+offset_bottom = 55.0
+placeholder_text = "Enter Admin Token"
+
+[node name="AdminConnectRTL" type="RichTextLabel" parent="MarginContainer/Panel/AdminTokenLabel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 104.0
+offset_top = -3.0
+offset_right = 742.0
+offset_bottom = 22.0
+bbcode_enabled = true
+
+[node name="StatusLabel" type="Label" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.0
+offset_top = 333.0
+offset_right = -17.0
+offset_bottom = 356.0
+grow_horizontal = 2
+text = "Status"
+
+[node name="StatusRTL" type="RichTextLabel" parent="MarginContainer/Panel/StatusLabel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 23.0
+offset_right = 308.0
+offset_bottom = 145.0
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+
+[node name="HostServerRTL" type="RichTextLabel" parent="MarginContainer/Panel/StatusLabel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -78.0
+offset_top = 170.0
+offset_right = 312.0
+offset_bottom = 193.0
 bbcode_enabled = true
 text = "[font_size=14]Don't have a server?[color=#93c5fd] [url=https://github.com/Drop-OSS]Then host your own instance![/url][/color][/font_size]"
-script = ExtResource("1_ffqec")
+
+[node name="Button" type="Button" parent="MarginContainer/Panel"]
+layout_mode = 0
+offset_left = 730.0
+offset_top = 133.0
+offset_right = 866.0
+offset_bottom = 176.0
+text = "TRY AGAIN"
+
+[node name="drop_logo" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(10, 18)
+texture = ExtResource("4_s26my")
+centered = false
+script = ExtResource("5_gar41")
+
+[node name="Wave" type="Sprite2D" parent="MarginContainer/drop_logo"]
+modulate = Color(1, 1, 1, 0.670588)
+position = Vector2(65.5, 19)
+scale = Vector2(0.241627, 0.52381)
+texture = ExtResource("6_dmqie")
+
+[node name="Label" type="Label" parent="MarginContainer/drop_logo"]
+offset_left = 36.0
+offset_top = 4.0
+offset_right = 92.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.576471, 0.772549, 0.992157, 1)
+theme_override_font_sizes/font_size = 20
+text = "DROP"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/Panel/Button" to="." method="_on_button_pressed"]

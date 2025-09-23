@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://vt5t41osx7e6"
-path="res://.godot/imported/Metropolis-Light.ttf-e23991babbc7781c786080b8a3b2aa4d.fontdata"
+path="res://.godot/imported/Metropolis-Light.ttf-a62f95e407948ec60d608986b4e39348.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/Metropolis-Light.ttf"
-dest_files=["res://.godot/imported/Metropolis-Light.ttf-e23991babbc7781c786080b8a3b2aa4d.fontdata"]
+source_file="res://assets/fonts/Metropolis/Metropolis-Light.ttf"
+dest_files=["res://.godot/imported/Metropolis-Light.ttf-a62f95e407948ec60d608986b4e39348.fontdata"]
 
 [params]
 

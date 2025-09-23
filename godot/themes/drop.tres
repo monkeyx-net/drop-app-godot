@@ -1,6 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://c18v3356j1s0a"]
-
-[ext_resource type="FontFile" uid="uid://btmsxat4jl02m" path="res://assets/fonts/Metropolis-SemiBold.ttf" id="1_v3rx4"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://c18v3356j1s0a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eeoct"]
 bg_color = Color(0, 0, 0, 1)
@@ -19,7 +17,6 @@ expand_margin_top = 20.0
 expand_margin_bottom = 20.0
 
 [resource]
-default_font = ExtResource("1_v3rx4")
 default_font_size = 18
 Button/colors/font_color = Color(0.38039216, 0.4, 0.4117647, 1)
 Button/colors/icon_normal_color = Color(0.38039216, 0.4, 0.4117647, 1)

@@ -83,11 +83,13 @@ func get_endpoint(endpoint_name: String) -> String:
 	var endpoints = server.get("endpoints", {})
 	return endpoints.get(endpoint_name, "")
 
+func get_sever_url() -> String:
+	return "%s:%s" % [server_base_url, server_port]
+
 func get_full_url(endpoint_name: String) -> String:
 	var endpoint = get_endpoint(endpoint_name)
 	if endpoint.is_empty():
-		return ""
-	
+		return ""	
 	return "%s:%s%s" % [server_base_url, server_port, endpoint]
 
 func get_auth_token(is_admin: bool = false) -> String:
