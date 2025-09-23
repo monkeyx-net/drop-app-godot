@@ -57,8 +57,8 @@ layout_mode = 0
 offset_top = 24.0
 offset_right = 308.0
 offset_bottom = 55.0
-text = "http://localhost:3001"
-placeholder_text = "http://localhost:3001"
+text = "http://localhost:3000"
+placeholder_text = "http://localhost:3000"
 
 [node name="GreyCircle" type="Sprite2D" parent="MarginContainer/Panel/ConnectLabel"]
 unique_name_in_owner = true

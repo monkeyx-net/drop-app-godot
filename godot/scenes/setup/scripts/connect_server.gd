@@ -7,8 +7,8 @@ func setup() -> void:
 	var server_url = JsonSettings.server_base_url
 	var server_ip = server_url.find("//")
 	# Uses meta properties of the Ric Text Label.
-	%ClientConnectRTL.text = "[font_size=14][color=#93c5fd]Use link to create a client token - [url=%s/account/tokens]%s/account/tokens[/url][/color][/font_size]" % [JsonSettings.get_sever_url(),JsonSettings.get_sever_url()]
-	%AdminConnectRTL.text = "[font_size=14][color=#93c5fd]Use link to create an admin token - [url=%s/admin/settings/tokens]%s/admin/settings/tokens[/url][/color][/font_size]" % [JsonSettings.get_sever_url(),JsonSettings.get_sever_url()]
+	%ClientConnectRTL.text = "[font_size=14][color=#93c5fd][url=%s/account/tokens]Use link to create a client token - %s/account/tokens[/url][/color][/font_size]" % [JsonSettings.get_sever_url(),JsonSettings.get_sever_url()]
+	%AdminConnectRTL.text = "[font_size=14][color=#93c5fd][url=%s/admin/settings/tokens]Use link to create an admin token - %s/admin/settings/tokens[/url][/color][/font_size]" % [JsonSettings.get_sever_url(),JsonSettings.get_sever_url()]
 	%HostServerRTL.meta_clicked.connect(func(url: String): OS.shell_open(url))
 	%ClientConnectRTL.meta_clicked.connect(func(url: String): OS.shell_open(url))
 	%AdminConnectRTL.meta_clicked.connect(func(url: String): OS.shell_open(url))
