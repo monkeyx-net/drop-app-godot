@@ -163,6 +163,14 @@ offset_right = 866.0
 offset_bottom = 176.0
 text = "TRY AGAIN"
 
+[node name="Button2" type="Button" parent="MarginContainer/Panel"]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 385.0
+offset_right = 526.0
+offset_bottom = 428.0
+text = "CONTINUE"
+
 [node name="drop_logo" type="Sprite2D" parent="MarginContainer"]
 position = Vector2(10, 18)
 texture = ExtResource("4_s26my")
@@ -186,3 +194,4 @@ text = "DROP"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="MarginContainer/Panel/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/Button2" to="." method="_on_button_2_pressed"]

@@ -17,8 +17,8 @@ func _ready() -> void:
 
 	if JsonSettings.admin_token == "encrypted_admin_generated_token" and JsonSettings.client_token == "encrypted_client_generated_token":
 		# use call_deffered to allow main scence to fully initialise 
-		get_tree().call_deferred("change_scene_to_file", "res://scenes/setup/setup.tscn")	
-	
+		#get_tree().call_deferred("change_scene_to_file", "res://scenes/setup/setup.tscn")	
+		pass
 		#var success = JsonSettings.encrypt_data(crypto, keypair, JsonSettings.client_token)
 		#JsonSettings.client_token = success
 	#var bob:String = JsonSettings.decrypt_data(crypto, keypair,Marshalls.base64_to_raw(JsonSettings.client_token))

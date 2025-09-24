@@ -50,3 +50,7 @@ func _on_button_pressed() -> void:
 	#change to get all text after : or use seperate edit box
 	JsonSettings.jsetting.server_port = "3000"
 	setup()
+
+
+func _on_button_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main/control.tscn")

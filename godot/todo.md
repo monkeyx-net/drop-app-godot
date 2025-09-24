@@ -15,12 +15,12 @@
 	* Reset/delete tokens/ show token?
 
 - Theme
-	* Create a theme based of current drop-app
+	* ~~Create a theme based of current drop-app~~
 	* Customise theme
 	* Make logo a scene
 	
 - First Run
-	* Set server url and port
+	* ~~Set server url and port~~
 	* Test works?
 	* Prompt to set up tokens with urls
 	* Save config/logs to user folder
