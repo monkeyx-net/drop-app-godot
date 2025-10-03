@@ -2,6 +2,12 @@ extends Control
 
 func _ready() -> void:
 	setup()
+	# millisecond test
+	var timestamp = int(Time.get_unix_time_from_system() * 1000)
+	var output = []
+	var exit_code = OS.execute("date", ["+%s%3N"], output)
+	print (timestamp)
+	print (output)
 
 func setup() -> void:
 	var server_url = JsonSettings.server_base_url
